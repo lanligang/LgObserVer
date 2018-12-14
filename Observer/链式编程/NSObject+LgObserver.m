@@ -77,7 +77,6 @@ static  char lg_ObserverKey='\0';
 		for (NSString *key in self->_keyCacheArray) {
 			[self.observed removeObserver:self forKeyPath:key];
 		}
-		[self setDidChageMsg:nil];
 		self.observed = newObj;
 		return self;
 	};
@@ -88,11 +87,12 @@ static  char lg_ObserverKey='\0';
 		if (self.didChageMsg) {
 			self.didChageMsg(@{
 							  lgMsgKey:keyPath,
-							   @"change":change});
+							   @"change":change,
+							  @"obj":object
+							  });
 		}
 	}
 }
-
 -(void)dealloc
 {
 	for (NSString *key in _keyCacheArray) {
