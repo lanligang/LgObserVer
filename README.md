@@ -29,6 +29,9 @@
 		NSLog(@"收到通知 监听并修改了 |%@",msg);
 		ws.navigationItem.title = @"第一页修改完成";
 	}];
+	
+   //移除监听
+   self.lgOberVer.removeObserverKey(@"color");
 
 ```
  * 创建个按钮
