@@ -77,6 +77,7 @@ static  char lg_ObserverKey='\0';
 		for (NSString *key in self->_keyCacheArray) {
 			[self.observed removeObserver:self forKeyPath:key];
 		}
+		[self->_keyCacheArray removeAllObjects];
 		self.observed = newObj;
 		return self;
 	};
@@ -98,6 +99,7 @@ static  char lg_ObserverKey='\0';
 	for (NSString *key in _keyCacheArray) {
 		[self.observed removeObserver:self forKeyPath:key];
 	}
+	[_keyCacheArray removeAllObjects];
 }
 
 
